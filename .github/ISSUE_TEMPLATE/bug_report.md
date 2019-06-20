@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[DemonsFree]"
+title: "[BUG]"
 labels: bug
 assignees: ''
 
@@ -21,7 +21,7 @@ A clear description of what was expected to happen.
 If applicable, add screenshots to help explain the problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
+ - OS: [e.g. iOS, Windows]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
