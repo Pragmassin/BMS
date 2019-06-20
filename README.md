@@ -9,8 +9,8 @@ This project is not intended for commercial purposes or for distribution
 ## Table of Contents
 
 * [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
+* [Terminal Commands](#terminal-commands)
+* [Project Structure](#project-structure)
 * [Resources](#resources)
 * [Reporting Issues](#reporting-issues)
 * [Technical Support or Questions](#technical-support-or-questions)
@@ -38,12 +38,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-### What's included
+## Project Structure
 
 Within the download you'll find the following directories and files:
 
 ```
-material-dashboard-angular
+BMS
 ├── CHANGELOG.md
 ├── LICENSE.md
 ├── README.md
