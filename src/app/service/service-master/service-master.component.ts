@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-service-master',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceComponent implements OnInit {
 
-  constructor() { }
+  posts = [];
+  onAddPost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    const post = {
+      service: form.value.service
+    };
+    this.posts.push(post);
+    form.resetForm();
+  }
 
+  constructor() { }
   ngOnInit() {
   }
 
