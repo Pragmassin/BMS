@@ -10,60 +10,36 @@
                     <h4> Bill Cycle Master </h4>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="cycle">Bill Cycle Name:</label>
-                                <input type="text" class="form-control" id="cycle">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="months">Number of Months:</label>
-                                <input type="text" class="form-control" id="months">
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger" style="margin-bottom: 20px">Save</button>
-                    </form>
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <table class="table table-hover" style="margin-left: 0px">
-                                <thead class="text-danger">
-                                    <tr>
-                                        <th>Bill Cycle Name</th>
-                                        <th>Number of months</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <mat-card>
+                        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+                            <mat-form-field class="col-sm-6">
+                                <input matInput type="text" name="billcycle" ngModel required placeholder="Bill Cycle Name" #billcycle="ngModel">
+                                <mat-error *ngIf="billcycle.invalid">Please enter the Bill Cycle Name!</mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="col-sm-6">
+                                <input matInput type="number" name="months" ngModel required placeholder="Number of Months" #months="ngModel">
+                                <mat-error *ngIf="months.invalid">Please enter the number of months!</mat-error>
+                            </mat-form-field>
+
+                            <button type="submit" class="btn btn-danger" style="margin-bottom: 20px">Save</button>
+                        </form>
+                    </mat-card>
                 </div>
+                <mat-accordion multi="true" *ngIf="posts.length>0">
+                    <mat-expansion-panel *ngFor="let post of posts">
+                        <mat-expansion-panel-header>
+                            Bill Cycle Name: {{post.billcycle}}
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="col-md-6"> Months: {{ post.months}} </div>
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="primary">EDIT</button>
+                            <button mat-button color="warn">DELETE</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <p class="text-info mat-body-1" *ngIf="posts.length <= 0" style="margin-left: 30px"><strong> No Posts Added yet!! </strong></p>
             </div>
         </div>
     </div>

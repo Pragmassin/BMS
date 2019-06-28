@@ -11,97 +11,90 @@
                     <h4>Create Bill</h4>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group" class="col-sm-6" style="margin-bottom: 10px">
-                                <label for="vendor">Vendor: </label>
-                                <select class="form-control selectpicker" data-style="btn btn-link" id="vendor">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4
-          </option>
-        </select>
-                            </div>
-                            <div class="form-group" class="col-sm-6" style="margin-bottom: 10px">
-                                <label for="ser">Service:</label>
-                                <select class="form-control selectpicker" data-style="btn btn-link" id="ser">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4
-          </option>
-        </select>
-                            </div>
-                            <div class="form-group" class="col-sm-6" style="margin-bottom: 10px">
-                                <label for="date">Date:</label>
-                                <input type="text" class="form-control" id="date">
-                            </div>
+                    <mat-card>
+                        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-sm-6">
+                                    <mat-label>Vendor</mat-label>
+                                    <select matNativeControl name="vendor" ngModel required>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                  </select>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <mat-label>Service</mat-label>
+                                    <select matNativeControl name="service" ngModel required>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                  </select>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="date" name="date" ngModel required placeholder="Date" #date="ngModel">
+                                    <mat-error *ngIf="date.invalid">Please enter the date!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="number" name="invoice" ngModel required placeholder="Invoice No." #invoice="ngModel">
+                                    <mat-error *ngIf="invoice.invalid">Please enter the Invoice Number!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="number" name="value" ngModel required placeholder="Value" #value="ngModel">
+                                    <mat-error *ngIf="value.invalid">Please enter the Value!</mat-error>
+                                </mat-form-field>
 
-                            <div class="form-group" class="col-sm-6" style="margin-bottom: 10px">
-                                <label for="inv">Invoice No.:</label>
-                                <input type="text" class="form-control" id="inv">
-                            </div>
 
-                            <div class="form-group" class="col-sm-6" style="margin-bottom: 10px">
-                                <label for="val">Value:</label>
-                                <input type="text" class="form-control" id="val">
+                                <!--<div class="form-group form-file-upload">
+                                <input type="file" multiple="" class="inputFileHidden">
+                                <div class="input-group">
+                                    <input type="text" class="form-control inputFileVisible" placeholder="Upload Bill">
+                                    <span class="input-group-btn">
+                                            <button type="button" class="btn btn-fab btn-warning">
+                                                <label for="file" style="padding: 0px">
+                                            <i class="material-icons"  style="color: white">attach_file</i>
+                                            <input type="file" id="file" (change)="handleFileInput($event.target.files)"></label>
+                                            </button>
+                                        </span>
+                                </div>
+                            </div>-->
+
+                                <div class="col-sm-6">
+                                    <div class="example-wrap">
+                                        <h4 class="example-title">Upload Bill</h4>
+                                        <div class="example">
+                                            <input style="background-color: white; width: 500px" type="file" name="bill" ngModel id="input-file-now" data-plugin="dropify" data-default-file="" #bill="ngModel" />
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="form-group form-file-upload form-file-multiple">
-                            <input type="file" multiple="" class="inputFileHidden">
-                            <div class="input-group">
-                                <input type="text" class="form-control inputFileVisible" placeholder="Upload Bill">
-                                <span class="input-group-btn">
-                              <button type="button" class="btn btn-warning">
-                                <i class="material-icons">attach_file</i>
-                              </button>
-                            </span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger" style="margin-right: 10px; margin-top: 20px; margin-bottom: 20px; margin-left: 10px">Save</button>
-                        <button type="button" class="btn btn-outline-danger" style="margin-top: 20px; margin-bottom: 20px">Clear</button>
-                    </form>
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <table class="table table-hover" style="margin-left: 0px">
-                                <thead class="text-danger">
-                                    <tr>
-                                        <th>Vendor</th>
-                                        <th>Service</th>
-                                        <th>Date</th>
-                                        <th>Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            <p><button type="submit" class="btn btn-danger" style="margin-right: 10px; margin-top: 20px; margin-bottom: 20px; margin-left: 10px">Save</button>
+                                <button type="button" class="btn btn-outline-danger" style="margin-top: 20px; margin-bottom: 20px">Clear</button>
+                            </p>
+                        </form>
+                    </mat-card>
                 </div>
+                <mat-accordion multi="true" *ngIf="posts.length>0">
+                    <mat-expansion-panel *ngFor="let post of posts">
+                        <mat-expansion-panel-header>
+                            Vendor: {{post.vendor}}
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="col-md-3">Service: {{post.service}} </div>
+                            <div class="col-md-3"> Date: {{post.date}} </div>
+                            <div class="col-md-3"> Value: {{post.value}}</div>
+                            <div class="col-md-3">Bill: {{post.bill}}</div>
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="primary">EDIT</button>
+                            <button mat-button color="warn">DELETE</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <p class="text-info mat-body-1" *ngIf="posts.length <= 0" style="margin-left: 30px"><strong> No Posts Added yet!! </strong></p>
             </div>
         </div>
+    </div>
+</div>
