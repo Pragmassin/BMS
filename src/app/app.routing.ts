@@ -9,16 +9,23 @@ import { CyclemasterComponent } from './bill/cyclemaster/cyclemaster.component';
 import { BillScheduleComponent } from './bill/bill-schedule/bill-schedule.component';
 import { ServiceComponent } from './service/service-master/service-master.component';
 import { ReminderComponent } from './service/reminder-config/reminder-config.component';
+import { HomeComponent } from './home/home.component';
 
 
 const AppRoutes: Routes = [
-  {path: '', component: LoginComponent },
-  {path: 'vendor', component: VendormasterComponent},
-  {path: 'create', component: CreateComponent},
-  {path: 'cycle', component: CyclemasterComponent},
-  {path: 'schedule', component: BillScheduleComponent},
-  {path: 'serv', component: ServiceComponent },
-  {path: 'reminder', component: ReminderComponent}
+	{ path: '', component: LoginComponent },
+	{
+		path: 'BMS',
+		component: HomeComponent,
+		children: [
+			{ path: 'vendor', component: VendormasterComponent },
+			{ path: 'create', component: CreateComponent },
+			{ path: 'cycle', component: CyclemasterComponent },
+			{ path: 'schedule', component: BillScheduleComponent },
+			{ path: 'serv', component: ServiceComponent },
+			{ path: 'reminder', component: ReminderComponent },
+		],
+	},
 ];
 
 @NgModule({
