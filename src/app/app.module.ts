@@ -14,6 +14,7 @@ import {
 } from '@agm/core';
 
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VendormasterComponent } from './vendormaster/vendormaster.component';
 import { CreateComponent } from './bill/create/create.component';
@@ -41,6 +42,7 @@ import { ReminderComponent } from './service/reminder-config/reminder-config.com
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
     SidebarComponent,
     VendormasterComponent,
     CreateComponent,
