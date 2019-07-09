@@ -160,5 +160,5 @@ If you have questions or need help integrating the Template please [contact Temp
 
 ## Useful Links
 Authors: 
-Pragmassin - pragz.s13@gmail.com
-Dipam Goswami - dipamgoswami01@gmail.com
+- Pragmassin - pragz.s13@gmail.com
+- Dipam Goswami - dipamgoswami01@gmail.com
