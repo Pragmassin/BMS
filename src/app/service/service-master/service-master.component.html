@@ -6,53 +6,32 @@
                     <h4> Service Master </h4>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="service">Service:</label>
-                                <input type="text" class="form-control" id="service">
+                    <mat-card>
+                        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="text" name="service" ngModel required placeholder="Service Name" #service="ngModel">
+                                    <mat-error *ngIf="service.invalid">This field is required!</mat-error>
+                                </mat-form-field>
                             </div>
-                        </div>
 
-
-                        <button type="button" class="btn btn-danger" style="margin-bottom: 20px">Save</button>
-                    </form>
-
-                    <div class="col-sm-10">
-                        <div class="card">
-                            <table class="table table-hover" style="margin-left: 0px">
-                                <thead class="text-danger">
-                                    <tr>
-                                        <th>Service</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            <button type="submit" class="btn btn-danger" style="margin-bottom: 20px">Save</button>
+                        </form>
+                    </mat-card>
                 </div>
+                <mat-accordion multi="true" *ngIf="posts.length>0">
+                    <mat-expansion-panel *ngFor="let post of posts">
+                        <mat-expansion-panel-header>
+                            Service Name: {{post.service}}
+                        </mat-expansion-panel-header>
+                        <mat-action-row>
+                            <button mat-button color="primary">EDIT</button>
+                            <button mat-button color="warn">DELETE</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <p *ngIf="posts.length <= 0" style="margin-left: 30px; color: red"><strong> No Posts
+                          Added yet!! </strong></p>
             </div>
         </div>
     </div>

@@ -11,11 +11,15 @@
             <h4 class="card-title" style="text-align: center">Employee Login</h4>
         </div>
         <div class="card-body">
-            <form>
+            <form #loginForm="ngForm">
                 <div class="form-group">
-                    <input type="email" class="form-control" id="username" placeholder="Username" style="margin-bottom: 10px" #Username>
-                    <input type="password" class="form-control" id="passwprd" placeholder="Password">
-                    <button type="button" class="btn btn-danger pull-left" [routerLink]="['/BMS','vendor']" routerLinkActive="active">Sign In</button>
+                    <i class="material-icons">account_circle</i>
+                    <input type="text" class="form-control" ngModel name="Username" placeholder="Username" style="margin-bottom: 10px" #Username required>
+                </div>
+                <div class="form-group">
+                    <i class="material-icons">vpn_key</i>
+                    <input type="password" class="form-control" #password ngModel name="passwprd" placeholder="Password" required>
+                    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-danger pull-left" [routerLink]="['/BMS','vendor']" routerLinkActive="active">Sign In</button>
                 </div>
             </form>
         </div>

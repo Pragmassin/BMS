@@ -6,138 +6,99 @@
                     <h4>Vendor Master</h4>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="usr">Name:</label>
-                                <input type="text" class="form-control" id="usr">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="ad1">Address 1:</label>
-                                <input type="text" class="form-control" id="ad1">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="ad2">Address 2:</label>
-                                <input type="text" class="form-control" id="ad2">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="ad3">Address 3:</label>
-                                <input type="text" class="form-control" id="ad3">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="ad4">Address 4:</label>
-                                <input type="text" class="form-control" id="ad4">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="area">Area:</label>
-                                <input type="text" class="form-control" id="area">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="city">City:</label>
-                                <input type="text" class="form-control" id="city">
-                            </div>
-                            <div class="form-group" class="col-sm-4">
-                                <label for="sel">State:</label>
-                                <select class="form-control" id="sel">
-                                  <option>Goa</option>
-                                  <option>Maharashtra</option>
-                                  <option>Andhra Pradesh</option>
-                                  <option>Karnataka</option>
-                                  <option>Delhi</option>
-                                  <option>Rajasthan</option>
-                                  <option>Gujarat</option>
-                                  <option>Madhya Pradesh</option>
-                                  <option>West Bengal</option>
+                    <mat-card>
+                        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="user" ngModel required placeholder="Name" #user="ngModel">
+                                    <mat-error *ngIf="user.invalid">Please enter a name!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="ad1" ngModel required placeholder="Address 1" #ad1="ngModel">
+                                    <mat-error *ngIf="ad1.invalid">Please enter the Address!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="ad2" ngModel placeholder="Address 2">
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="ad3" ngModel placeholder="Address 3">
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="area" ngModel required placeholder="Area" #area="ngModel">
+                                    <mat-error *ngIf="area.invalid">Please enter the Area!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="city" ngModel required placeholder="City" #city="ngModel">
+                                    <mat-error *ngIf="city.invalid">Please enter the City!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <mat-label>State</mat-label>
+                                    <select matNativeControl name="state" ngModel required>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="Delhi">Delhi</option>
                                 </select>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="number" name="pin" ngModel required placeholder="Pin Code" #pin="ngModel">
+                                    <mat-error *ngIf="pin.invalid">Please enter the Pin Code!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="email" ngModel required placeholder="Email" #email="ngModel">
+                                    <mat-error *ngIf="email.invalid">Please enter the Email Id!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="number" name="phone" ngModel required placeholder="Phone No." #phone="ngModel">
+                                    <mat-error *ngIf="phone.invalid">Please enter the Phone Number!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="text" name="contact" ngModel required placeholder="Contact Person" #contact="ngModel">
+                                    <mat-error *ngIf="contact.invalid">Please enter the Contact Person!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="email" name="esc" ngModel required placeholder="Escalation Email" #esc="ngModel">
+                                    <mat-error *ngIf="esc.invalid">Please enter the Escalation Email!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="number" name="escph" ngModel required placeholder="Escalation phone" #escph="ngModel">
+                                    <mat-error *ngIf="escph.invalid">Please enter the Escalation Phone!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-4">
+                                    <input matInput type="number" name="gst" ngModel required placeholder="GST" #gst="ngModel">
+                                    <mat-error *ngIf="gst.invalid">Please enter the GST Number!</mat-error>
+                                </mat-form-field>
                             </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="pin">Pin Code</label>
-                                <input type="text" class="form-control" id="pin">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="phone">Phone </label>
-                                <input type="text" class="form-control" id="phone">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="cont">Contact Person</label>
-                                <input type="text" class="form-control" id="cont">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="esc">Escalation Email</label>
-                                <input type="text" class="form-control" id="esc">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="escph">Escalation Phone</label>
-                                <input type="text" class="form-control" id="escph">
-                            </div>
-                            <div class="form-group" class="col-sm-4" style="margin-bottom: 10px">
-                                <label for="gst">GST</label>
-                                <input type="text" class="form-control" id="gst">
-                            </div>
-                        </div>
-                    </form>
 
-                    <button type="button" class="btn btn-danger" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px">Save</button>
-                    <button type="button" class="btn btn-outline-danger" style="margin-top: 20px; margin-bottom: 20px">Clear</button>
+                            <button type="submit" class="btn btn-danger" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px">Save</button>
+                        </form>
+                    </mat-card>
 
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <table class="table table-hover" style="margin-left: 0px">
-                                <thead class="text-danger">
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>City</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
 
-                            </table>
-
-                        </div>
-                    </div>
+                    <mat-accordion multi="true" *ngIf="posts.length>0">
+                        <mat-expansion-panel *ngFor="let post of posts">
+                            <mat-expansion-panel-header>
+                                Name: {{post.name}}
+                            </mat-expansion-panel-header>
+                            <div class="row">
+                                <div class="col-md-3"> Phone: {{ post.phone}} </div>
+                                <div class="col-md-3"> City: {{ post.city}} </div>
+                                <div class="col-md-3"> Contact Person: {{post.contact}}</div>
+                                <div class="col-md-3"> GST: {{post.gst}}</div>
+                            </div>
+                            <mat-action-row>
+                                <button mat-button color="primary">EDIT</button>
+                                <button mat-button color="warn">DELETE</button>
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <p *ngIf="posts.length <= 0" style="margin-left: 30px; margin-top: 20px; color: red"><strong> No
+                            Posts Added yet!! </strong></p>
                 </div>
             </div>
         </div>

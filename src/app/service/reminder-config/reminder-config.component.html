@@ -6,81 +6,63 @@
                     <h4> Reminder Configuration </h4>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group" class="col-sm-5" style="margin-bottom: 10px"><label for="vendor">Vendor:</label>
-                                <select class="form-control" id="vendor">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4
-              </option>
-            </select>
+                    <mat-card>
+                        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-sm-6">
+                                    <mat-label>Vendor</mat-label>
+                                    <select matNativeControl name="vendor" ngModel required>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <mat-label>Service</mat-label>
+                                    <select matNativeControl name="service" ngModel required>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="email" name="toemail" ngModel required placeholder="To Mail Id" #toemail="ngModel">
+                                    <mat-error *ngIf="toemail.invalid">Please enter the Mail Id!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="email" name="ccemail" ngModel required placeholder="CC Mail id" #ccemail="ngModel">
+                                    <mat-error *ngIf="ccemail.invalid">Please enter the Value!</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-sm-6">
+                                    <input matInput type="email" name="bccmail" ngModel required placeholder="BCC Mail Id" #bccmail="ngModel">
+                                    <mat-error *ngIf="bccmail.invalid">Please enter the Value!</mat-error>
+                                </mat-form-field>
                             </div>
-                            <div class="form-group" class="col-sm-5" style="margin-bottom: 10px">
-                                <label for="ser">Service:</label>
-                                <select class="form-control" id="ser">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4
-              </option>
-            </select>
-                            </div>
-                            <div class="form-group" class="col-sm-5" style="margin-bottom: 10px">
-                                <label for="tomail">To Mail Id:</label>
-                                <input type="text" class="form-control" id="tomail">
-                            </div>
-
-                            <div class="form-group" class="col-sm-5" style="margin-bottom: 10px">
-                                <label for="ccmail">CC Mail Id:</label>
-                                <input type="text" class="form-control" id="ccmail">
-                            </div>
-
-                            <div class="form-group" class="col-sm-5" style="margin-bottom: 10px">
-                                <label for="bccmail">BCC Mail Id:</label>
-                                <input type="text" class="form-control" id="bccmail">
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger" style="margin-right: 10px; margin-top: 20px; margin-bottom: 30px; margin-left: 10px">Save</button>
-                        <button type="button" class="btn btn-outline-danger btn-default" style="margin-top: 20px; margin-bottom: 30px">Clear</button>
-                    </form>
-                    <div class="card">
-                        <div class="col-sm-12">
-                            <table class="table table-hover" style="margin-left: 0px">
-                                <thead class="text-danger">
-                                    <tr>
-                                        <th>Vendor</th>
-                                        <th>Service</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr style="height: 40px">
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            <button type="submit" class="btn btn-danger" style="margin-right: 10px; margin-top: 20px; margin-bottom: 30px; margin-left: 10px">Save</button>
+                        </form>
+                    </mat-card>
                 </div>
+                <mat-accordion multi="true" *ngIf="posts.length>0">
+                    <mat-expansion-panel *ngFor="let post of posts">
+                        <mat-expansion-panel-header>
+                            Vendor: {{post.vendor}}
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="col-md-3">Service: {{post.service}} </div>
+                            <div class="col-md-3"> To Mail Id: {{post.toemail}} </div>
+                            <div class="col-md-3"> CC Mail Id: {{post.ccemail}}</div>
+                            <div class="col-md-3"> BCC Mail Id: {{post.bccmail}}</div>
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="primary">EDIT</button>
+                            <button mat-button color="warn">DELETE</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <p *ngIf="posts.length <= 0" style="margin-left: 30px; margin-top: 10px; color: red"><strong> No Posts Added yet!!
+                        </strong></p>
             </div>
         </div>
     </div>

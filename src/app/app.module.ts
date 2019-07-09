@@ -2,7 +2,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routes, RouterModule } from '@angular/router';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatExpansionModule} from '@angular/material';
 
 import { AppRoutingModule } from './app.routing';
@@ -21,6 +20,7 @@ import { CyclemasterComponent } from './bill/cyclemaster/cyclemaster.component';
 import { BillScheduleComponent } from './bill/bill-schedule/bill-schedule.component';
 import { ServiceComponent } from './service/service-master/service-master.component';
 import { ReminderComponent } from './service/reminder-config/reminder-config.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -48,6 +48,7 @@ import { ReminderComponent } from './service/reminder-config/reminder-config.com
     BillScheduleComponent,
     ServiceComponent,
     ReminderComponent,
+    HomeComponent
 
   ],
   providers: [],

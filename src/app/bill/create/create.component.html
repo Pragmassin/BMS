@@ -67,7 +67,6 @@
 
                             </div>
                             <p><button type="submit" class="btn btn-danger" style="margin-right: 10px; margin-top: 20px; margin-bottom: 20px; margin-left: 10px">Save</button>
-                                <button type="button" class="btn btn-outline-danger" style="margin-top: 20px; margin-bottom: 20px">Clear</button>
                             </p>
                         </form>
                     </mat-card>
@@ -89,7 +88,7 @@
                         </mat-action-row>
                     </mat-expansion-panel>
                 </mat-accordion>
-                <p class="text-info mat-body-1" *ngIf="posts.length <= 0" style="margin-left: 30px"><strong> No Posts Added yet!! </strong></p>
+                <p *ngIf="posts.length <= 0" style="margin-left: 30px; color: red"><strong> No Posts Added yet!! </strong></p>
             </div>
         </div>
     </div>
