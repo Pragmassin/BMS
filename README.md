@@ -62,6 +62,11 @@ BMS
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
 │   │   ├── app.routing.ts
+│   │   ├── Home
+│   │   │   ├── home.component.scss
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.spec.ts
+│   │   │   └── home.component.ts
 │   │   ├── Bill
 │   │   │   |
 │   │   │   ├── create
@@ -142,38 +147,18 @@ BMS
 - [Material Kit](https://www.creative-tim.com/product/material-kit?ref=github-mda-free) - For Front End Development
 
 ## Reporting Issues
-
-### For Template : 
-Creative Tim uses GitHub Issues as the official bug tracker for the Material Dashboard. Here are some advices for users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Material Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+We use GitHub issues as bug tracker.
 
 
 
 ## Technical Support or Questions
 
-If you have questions or need help integrating the Template please [contact](https://www.creative-tim.com/contact-us)
+If you have questions or need help integrating the Template please [contact Template Creator](https://www.creative-tim.com/contact-us)
 
 
-
-## Licensing
-
-- Copyright 2018 Creative Tim (https://www.creative-tim.com/)
-
-- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-angular2/blob/master/LICENSE.md)
 
 
 ## Useful Links
-### From the Template Author:
-
-- [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
-
-
-
-[CHANGELOG]: ./CHANGELOG.md
-
-[version-badge]: https://img.shields.io/badge/version-2.3.0-blue.svg
+Authors: 
+Pragmassin - pragz.s13@gmail.com
+Dipam Goswami - dipamgoswami01@gmail.com
